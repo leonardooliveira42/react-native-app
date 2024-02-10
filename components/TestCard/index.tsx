@@ -1,6 +1,5 @@
 import { IPerson } from "../../interfaces/person";
 import { View, Text, StyleSheet } from "react-native";
-import { Link } from "expo-router";
 
 interface IProp {
   person: IPerson;
@@ -10,10 +9,11 @@ import { AvatarComponent } from "../Avatar";
 import MaleIcon from "../Icons/Male";
 import FemaleIcon from "../Icons/Female";
 import TodoListIcon from "../Icons/TodoList";
+import CardComponent from "../Card";
 
 export default function TestCardComponent({ person }: IProp) {
   return (
-    <Link href={`/${person.id}`}>
+    <CardComponent>
       <View style={styles.wrapper}>
         <AvatarComponent />
         <View style={styles.info}>
@@ -31,19 +31,15 @@ export default function TestCardComponent({ person }: IProp) {
           <Text style={styles.percentageTexT}>{person.percentage}%</Text>
         </View>
       </View>
-    </Link>
+    </CardComponent>
   );
 }
 
 const styles = StyleSheet.create({
   wrapper: {
-    borderWidth: 1,
-    borderColor: "#65A287",
-    borderRadius: 8,
-    paddingHorizontal: 20,
-    paddingVertical: 15,
     width: "100%",
-    marginBottom: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
